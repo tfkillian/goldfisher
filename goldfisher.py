@@ -1,20 +1,27 @@
 import itertools
 import random
 import math
-# import numpy as np
+
+"""
+this is a short python script to simulate mtg goldfishing
+it will read a simple text file with card names and read the file line by line
+it will then deal you 7 cards and show you the first 5 cards you would draw
+"""
+
+## mono green control
+current_file = "mgc"
 
 def createDeck():
     """
     This creates a single list containing tuples which have the values
     """
-    deck = ["Forest","Forest","Forest","Forest","Forest","Forest","Forest","Forest","Forest","Forest","Forest",
-            "Forest","Forest","Forest","Forest","Forest","Forest","Forest","Fog","Fog","Root Maze",
-            "Utopia Sprawl","Utopia Sprawl","Utopia Sprawl","Utopia Sprawl","Elvish Mystic","Elvish Mystic",
-            "Elvish Mystic","Elvish Mystic","Arbor Elf","Arbor Elf","Arbor Elf","Arbor Elf","Overgrowth",
-           "Overgrowth","Overgrowth","Overgrowth","Eternal Witness","Eternal Witness","Eternal Witness",
-           "Stampeding Serow","Stampeding Serow","Creeping Mold","Creeping Mold","Creeping Mold","Creeping Mold",
-           "Bramble Crush","Bramble Crush","Bramble Crush","Bramble Crush","Plow Under","Plow Under","Plow Under",
-           "Acidic Slime","Acidic Slime","Primal Command","Primal Command","Primal Command","Primal Command",]
+    deck = []
+    my_file = open(current_file)
+    all_the_lines = my_file.readlines()
+    deck = []
+    for i in all_the_lines:
+        deck.append(i.strip())
+    my_file.close()
     random.shuffle(deck)
     return deck
 
@@ -41,9 +48,8 @@ def dealDraw(deck):
 theDeck = createDeck()
 theHand = dealHand(theDeck)
 theDraw = dealDraw(theDeck)
-# print(len(theDeck))
 
-print("Opening hand")
-print(theHand)
-print("First five cards")
-print(theDraw)
+print("Opening hand: " + ', '.join(theHand))
+#print(', '.join(theHand))
+print("First five cards: " + ', '.join(theDraw))
+#print(', '.join(theDraw))
