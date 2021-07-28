@@ -9,7 +9,7 @@ it will then deal you 7 cards and show you the first 5 cards you would draw
 """
 
 ## mono green control
-current_file = "mgc"
+current_file = "lolwut"
 
 def createDeck():
     """
@@ -41,7 +41,7 @@ def dealDraw(deck):
     I was told to instead use indexing to draw, instead of modifying the list
     """
     hand = [] 
-    for i in range(5): 
+    for i in range(7): 
         hand.append(deck.pop())
     return hand
 
@@ -51,5 +51,5 @@ theDraw = dealDraw(theDeck)
 
 print("Opening hand: " + ', '.join(theHand))
 #print(', '.join(theHand))
-print("First five cards: " + ', '.join(theDraw))
+print("First seven cards drawn: " + ', '.join(theDraw))
 #print(', '.join(theDraw))
